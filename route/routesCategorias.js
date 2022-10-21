@@ -9,9 +9,20 @@ const router = express.Router();
 /** ROTAS DE CRUD DE CATEGORIA **/
 //ROTA DE CADASTRO DE CATEGORIA
 //NOME(P1, P2, P3, P4){}
+
+
 router.post('/cadastrarCategoria', (req, res)=>{
-    res.send('ROTA DE CADASTRO DE CATEGORIA!');
+    console.log(req.body);
+    let{nome_categoria}= req.body;
+    modelCategoria.create(
+       // dados da inserção   
+    {nome_categoria}
+    ).then(
+        res.send('ROTA DE CADASTRO DE CATEGORIA!')
+        );
+    
     // console.log('TESTE DE NODEMON');
+
 });
 
 //ROTA DE LEITURA DE CATEGORIA
